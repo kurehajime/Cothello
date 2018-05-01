@@ -63,6 +63,7 @@ public static class Util {
 			foreach (var arrow in arrows) {
 				if (GetEffectLine (map, target, GetLine (target, arrow)).lengh > 0) {
 					result.Add (target);
+					continue;
 				}
 			}
 		}
