@@ -58,12 +58,12 @@ public static class Util {
 		};
 		for (int target = 0; target < map.Length; target++) {
 			if(map[target]!=0){
-				continue;
+				break;
 			}
 			foreach (var arrow in arrows) {
 				if (GetEffectLine (map, target, GetLine (target, arrow)).lengh > 0) {
 					result.Add (target);
-					continue;
+					break;
 				}
 			}
 		}
