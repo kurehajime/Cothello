@@ -22,9 +22,8 @@ public static class Util {
 	/// <param name="point">Point.</param>
 	/// <param name="val">Value.</param>
 	public static int[] GetChangeMap(int[] map,int point,int val){
-		int[] result;
+		int[] result = (int[])map.Clone ();
 		bool ok = false;
-		map.CopyTo (result, 0);
 		result [point] = val;
 		foreach (int target in GetEffect(result,point)) {
 			ok = true;
@@ -61,13 +60,13 @@ public static class Util {
 				break;
 			}
 			foreach (var arrow in arrows) {
-				if (GetEffectLine (map, target, GetLine (target, arrow)).lengh > 0) {
+				if (getEffectLine (map, target, getLine (target, arrow)).Count > 0) {
 					result.Add (target);
 					break;
 				}
 			}
 		}
-		return result;
+		return result.ToArray();
 	}
 
 	/// <summary>
@@ -78,14 +77,14 @@ public static class Util {
 	/// <param name="point">Point.</param>
 	public static List<int> GetEffect(int[] map,int point){
 		var result = new List<int> ();
-		result.AddRange (GetEffectLine (map, point,GetLine (point, Arrow.LEFT_TOP)));
-		result.AddRange (GetEffectLine (map, point,GetLine (point, Arrow.TOP)));
-		result.AddRange (GetEffectLine (map, point,GetLine (point, Arrow.RIGHT_TOP)));
-		result.AddRange (GetEffectLine (map, point,GetLine (point, Arrow.LEFT)));
-		result.AddRange (GetEffectLine (map, point,GetLine (point, Arrow.RIGHT)));
-		result.AddRange (GetEffectLine (map, point,GetLine (point, Arrow.LEFT_BOTTOM)));
-		result.AddRange (GetEffectLine (map, point,GetLine (point, Arrow.BOTTOM)));
-		result.AddRange (GetEffectLine (map, point,GetLine (point, Arrow.RIGHT_BOTTOM)));
+		result.AddRange (getEffectLine (map, point,getLine (point, Arrow.LEFT_TOP)));
+		result.AddRange (getEffectLine (map, point,getLine (point, Arrow.TOP)));
+		result.AddRange (getEffectLine (map, point,getLine (point, Arrow.RIGHT_TOP)));
+		result.AddRange (getEffectLine (map, point,getLine (point, Arrow.LEFT)));
+		result.AddRange (getEffectLine (map, point,getLine (point, Arrow.RIGHT)));
+		result.AddRange (getEffectLine (map, point,getLine (point, Arrow.LEFT_BOTTOM)));
+		result.AddRange (getEffectLine (map, point,getLine (point, Arrow.BOTTOM)));
+		result.AddRange (getEffectLine (map, point,getLine (point, Arrow.RIGHT_BOTTOM)));
 		return result;
 	}
 
@@ -113,7 +112,7 @@ public static class Util {
 				return result;
 			}
 		}
-		return new List();
+		return new List<int>();
 	}
 
 	/// <summary>
@@ -126,7 +125,8 @@ public static class Util {
 		int target = 0;
 		switch (arrow) {
 		case Arrow.TOP:
-			while (target=target-OCT) {
+			while (true) {
+				target = target - OCT;
 				if (target < 0) {
 					break;
 				}
@@ -134,7 +134,8 @@ public static class Util {
 			}
 			break;
 		case Arrow.BOTTOM:
-			while (target = target + OCT) {
+			while (true) {
+				target = target + OCT;
 				if (target >= OCT * OCT) {
 					break;
 				}
@@ -142,7 +143,8 @@ public static class Util {
 			}
 			break;
 		case Arrow.LEFT:
-			while (target = target - 1) {
+			while (true) {
+				target = target - 1;
 				if (target % OCT > point % OCT) {
 					break;
 				}
@@ -150,7 +152,8 @@ public static class Util {
 			}
 			break;
 		case Arrow.RIGHT:
-			while (target = target + 1) {
+			while (true) {
+				target = target + 1;
 				if (target % OCT < point % OCT) {
 					break;
 				}
@@ -158,7 +161,8 @@ public static class Util {
 			}
 			break;
 		case Arrow.LEFT_TOP:
-			while (target = target -OCT + 1) {
+			while (true) {
+				target = target -OCT + 1;
 				if (target < 0||target % OCT > point % OCT) {
 					break;
 				}
@@ -166,7 +170,8 @@ public static class Util {
 			}
 			break;
 		case Arrow.RIGHT_TOP:
-			while (target = target -OCT - 1) {
+			while (true) {
+				target = target -OCT - 1;
 				if (target < 0||target % OCT < point % OCT) {
 					break;
 				}
@@ -174,7 +179,8 @@ public static class Util {
 			}
 			break;
 		case Arrow.LEFT_BOTTOM:
-			while (target = target +OCT - 1) {
+			while (true) {
+				target = target +OCT - 1;
 				if (target >= OCT * OCT||target % OCT > point % OCT) {
 					break;
 				}
@@ -182,7 +188,8 @@ public static class Util {
 			}
 			break;
 		case Arrow.RIGHT_BOTTOM:
-			while (target = target +OCT + 1) {
+			while (true) {
+				target = target +OCT + 1;
 				if (target >= OCT * OCT||target % OCT < point % OCT) {
 					break;
 				}
