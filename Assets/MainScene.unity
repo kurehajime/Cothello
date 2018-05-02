@@ -113,6 +113,51 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &377755426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 377755428}
+  - component: {fileID: 377755427}
+  m_Layer: 0
+  m_Name: BoardMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &377755427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 377755426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7223a99bc7bfa4f94896cf3fa38966c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StonePrefab: {fileID: 1760684295960750, guid: fd24acc0aa1cc4ceba9451c13738157a,
+    type: 2}
+  Board: {fileID: 932362973}
+  Stones: []
+  Map: 
+--- !u!4 &377755428
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 377755426}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.11284659, y: -0.09019998, z: 0.045595154}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &570997916
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,7 +249,7 @@ GameObject:
   - component: {fileID: 932362975}
   - component: {fileID: 932362974}
   m_Layer: 0
-  m_Name: board
+  m_Name: Board
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
